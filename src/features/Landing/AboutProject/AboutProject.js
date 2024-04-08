@@ -56,6 +56,10 @@ const VideoPlayerContainer = styled('div')`
   overflow: hidden;
   max-width: 768px;
   width: 100%;
+
+  ${props => props.theme.breakpoints.down('md')} {
+    height: 432px;
+  }
 `
 
 const PlayButton = styled('div')`
@@ -74,6 +78,11 @@ const SectionGrid = styled('div')`
   grid-template-columns: minmax(0, 768px) auto;
   column-gap: 24px;
   min-height: 432px;
+
+  ${props => props.theme.breakpoints.down('md')} {
+    grid-template-columns: auto;
+    row-gap: 24px;
+  }
 `
 
 const TextContainer = styled('div')`
@@ -97,10 +106,18 @@ const ImageContainer = styled('div')`
   right: -349px;
   top: 6px;
   z-index: -1;
+
+  ${props => props.theme.breakpoints.down('md')} {
+    display: none;
+  }
 `
 
 const Section = styled('section')`
   margin-top: 80px;
+
+  ${props => props.theme.breakpoints.down('sm')} {
+    margin-top: 40px;
+  }
 `
 
 export default AboutProject

@@ -10,6 +10,7 @@ let theme = createTheme({
       light: '#614388',
       mainContrast: '#964f93',
       superLight: '#f2e8ff',
+      semiLight: '#a779e3',
       main10: 'rgba(80, 55, 112, 0.1)',
       main3: 'rgba(80, 55, 112, 0.03)',
     },
@@ -36,6 +37,17 @@ let theme = createTheme({
       extraSmall: 8,
     }
   },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 640,
+      md: 900,
+      extramd: 1000,
+      lg: 1240,
+      semixl: 1440,
+      xl: 1500,
+    },
+  },
   typography: { fontFamily: montserrat.style.fontFamily, },
   spacing: 8
 })
@@ -47,6 +59,7 @@ theme = createTheme(theme, {
       color: theme.palette.black.main,
       fontSize: '20px',
       fontWeight: 400,
+      [theme.breakpoints.down('md')]: { fontSize: '18px' }
     },
     h4: {
       fontSize: '32px',
@@ -55,7 +68,8 @@ theme = createTheme(theme, {
     h2: {
       fontWeight: 700,
       fontSize: '40px',
-      color: theme.palette.black.main
+      color: theme.palette.black.main,
+      [theme.breakpoints.down('md')]: { fontSize: '32px' }
     }
   },
   transitions: {
@@ -119,7 +133,7 @@ theme = createTheme(theme, {
             padding: '0 24px',
           },
           '& .MuiAccordionDetails-root': {
-            padding: '0 24px 24px',
+            padding: '0 48px 24px 24px',
             fontWeight: 500,
             fontSize: '20px',
           },
@@ -128,7 +142,12 @@ theme = createTheme(theme, {
             fontSize: '24px',
             lineHeight: '24px',
           },
-          '& .MuiAccordionSummary-content.Mui-expanded': { marginBottom: '16px', }
+          '& .MuiAccordionSummary-content.Mui-expanded': { marginBottom: '16px', },
+
+          [theme.breakpoints.down('md')]: {
+            '& .MuiAccordionSummary-content': { fontSize: '20px', },
+            '& .MuiAccordionDetails-root': { fontSize: '18px', }
+          }
         }
       }
     },

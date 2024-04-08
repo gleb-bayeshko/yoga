@@ -5,7 +5,7 @@ import SelectArrowDown from '../../icons/SelectArrowDown'
 
 export const SelectContext = createContext({})
 
-const SelectMenu = ({ children, defaultValue, onChange, menuTitle }) => {
+const SelectMenu = ({ children, defaultValue, onChange, menuTitle, ...rest }) => {
   const [anchorEl, setAnchorEl] = useState(null)
   const [menuOpen, setMenuOpen] = useState(false)
   const [currentValue, setCurrentValue] = useState(defaultValue)
@@ -26,7 +26,7 @@ const SelectMenu = ({ children, defaultValue, onChange, menuTitle }) => {
   }
 
   return (
-    <>
+    <div>
       <MainButton
         display="flex"
         alignItems="center"
@@ -56,7 +56,7 @@ const SelectMenu = ({ children, defaultValue, onChange, menuTitle }) => {
           {children}
         </SelectContext.Provider>
       </Menu>
-    </>
+    </div>
   )
 }
 
@@ -75,7 +75,6 @@ const ArrowContainer = styled('div')`
 
 const MainButton = styled(Box)`
   cursor: pointer;
-  min-width: 160px;
 `
 
 const MenuPopoverTitle = styled(Typography)`

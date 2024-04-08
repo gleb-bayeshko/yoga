@@ -29,9 +29,9 @@ const EventCard = ({
         <Address>
           {address}
         </Address>
-        <Button variant="text">
+        <MapButton variant="text">
           как добраться?
-        </Button>
+        </MapButton>
         <AddressFooter>
           <Metro>
             <MetroIcon />
@@ -62,9 +62,9 @@ const EventCard = ({
           <Price>
             {price}
           </Price>
-          <Button variant="brand">
+          <MoreButton variant="brand">
             Подробнее
-          </Button>
+          </MoreButton>
         </PriceBlock>
       </InfoContainer>
     </CardContainer>
@@ -74,6 +74,7 @@ const EventCard = ({
 const CardContainer = styled('div')`
   display: grid;
   grid-template-columns: 180px auto auto;
+  grid-template-areas: "date adress info";
   background: ${props => props.theme.palette.black.main3};
   border-radius: ${props => props.theme.shape.borderRadius.small}px;
   column-gap: 72px;
@@ -82,27 +83,80 @@ const CardContainer = styled('div')`
   &:not(:last-child) {
     margin-bottom: 24px;
   }
+
+  ${props => props.theme.breakpoints.down('lg')} {
+    grid-template-columns: auto auto;
+    grid-template-areas:  
+            "date info"
+            "adress info";
+  }
+
+  ${props => props.theme.breakpoints.down('md')} {
+    grid-template-columns: auto;
+    grid-template-areas: 
+            "date"
+            "adress"
+            "info";
+    justify-content: center;
+  }
+
+  ${props => props.theme.breakpoints.down('sm')} {
+    justify-content: start;
+  }
 `
 
 const DateContainer = styled('div')`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  grid-area: date;
+
+  ${props => props.theme.breakpoints.down('md')} {
+    align-items: center;
+  }
+
+  ${props => props.theme.breakpoints.down('sm')} {
+    align-items: start;
+  }
 `
 
 const DateValue = styled('div')`
   font-weight: 600;
   font-size: 32px;
   line-height: 39px;
+
+  ${props => props.theme.breakpoints.down('md')} {
+    font-weight: 600;
+    font-size: 28px;
+  }
 `
 
 const AddressContainer = styled('div')`
   display: flex;
   flex-direction: column;
+  grid-area: adress;
+
+  ${props => props.theme.breakpoints.down('lg')} {
+    margin-top: 12px;
+  }
+
+  ${props => props.theme.breakpoints.down('md')} {
+    margin-top: 24px;
+    align-items: center;
+  }
+
+  ${props => props.theme.breakpoints.down('sm')} {
+    align-items: start;
+  }
 `
 const Address = styled('p')`
   font-weight: 600;
   font-size: 24px;
+
+  ${props => props.theme.breakpoints.down('md')} {
+    font-weight: 600;
+    font-size: 18px;
+  }
 `
 
 const Metro = styled('div')`
@@ -124,6 +178,12 @@ const AddressFooter = styled('div')`
   display: flex;
   align-items: center;
   margin-top: 14px;
+
+  ${props => props.theme.breakpoints.down('md')} {
+    margin-top: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `
 
 const WalkTimeContainer = styled('div')`
@@ -137,6 +197,15 @@ const WalkTimeContainer = styled('div')`
   font-weight: 500;
   font-size: 15px;
   margin-left: 16px;
+
+  ${props => props.theme.breakpoints.down('md')} {
+    margin-left: 0;
+    margin-top: 8px;
+    max-width: 238px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 `
 
 const TablerWalkIcon = styled(TablerWalk)`
@@ -148,15 +217,38 @@ const InfoContainer = styled('div')`
   flex-direction: column;
   align-items: flex-end;
   justify-content: space-between;
+  grid-area: info;
+
+  ${props => props.theme.breakpoints.down('md')} {
+    align-items: center;
+  }
+
+  ${props => props.theme.breakpoints.down('sm')} {
+    align-items: start;
+  }
 `
 
 const InfoDescription = styled('div')`
   display: flex;
+
+  ${props => props.theme.breakpoints.down('md')} {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+  }
 `
 
 const InfoBlock = styled('div')`
   display: flex;
   margin-left: 16px;
+
+  ${props => props.theme.breakpoints.down('md')} {
+    margin-left: 0;
+    
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
 `
 
 const InfoDescriptionValue = styled('p')`
@@ -168,12 +260,29 @@ const InfoDescriptionValue = styled('p')`
 const PriceBlock = styled('div')`
   display: flex;
   align-items: center;
+
+  ${props => props.theme.breakpoints.down('md')} {
+    margin-top: 24px
+  }
 `
 
 const Price = styled('p')`
   font-weight: 500;
   font-size: 32px;
   margin-right: 16px;
+`
+
+const MapButton = styled(Button)`
+  ${props => props.theme.breakpoints.down('md')} {
+    margin-top: 8px;
+  }
+`
+
+const MoreButton = styled(Button)`
+  ${props => props.theme.breakpoints.down('md')} {
+    height: 62px;
+    padding: 20px;
+  }
 `
 
 export default EventCard

@@ -1,6 +1,7 @@
 import CssBaseline from '@mui/material/CssBaseline'
 import { ThemeProvider } from '@mui/material/styles'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter'
+import Footer from '@/features/Footer/Footer'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import Navbar from '../features/Navbar/Navbar'
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
               <ThemeProvider theme={theme}>
                 <Navbar />
                 {children}
+                <Footer />
               </ThemeProvider>
             </AppRouterCacheProvider>
           </StyledComponentsRegistry>

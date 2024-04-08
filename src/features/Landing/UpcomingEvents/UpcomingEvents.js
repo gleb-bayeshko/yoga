@@ -42,6 +42,10 @@ const UpcomingEvents = () => {
 
 const Section = styled('section')`
   margin-top: 160px;
+
+  ${props => props.theme.breakpoints.down('md')} {
+    margin-top: 80px;
+  }
 `
 
 const Events = styled('div')`

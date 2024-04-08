@@ -2,6 +2,8 @@
 
 import { useState } from 'react'
 import { Button, styled, Typography } from '@mui/material'
+import { useTheme } from '@mui/material/styles'
+import useMediaQuery from '@mui/material/useMediaQuery'
 import Image from 'next/image'
 import dogImg from '@/../public/subscribe/dog.png'
 import { socials } from '@/features/Navbar/const'
@@ -10,6 +12,8 @@ import StyledLink from '@/ui/components/StyledLink/StyledLink'
 import Wrapper from '@/ui/components/Wrapper/Wrapper'
 
 const Subscribe = () => {
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'))
   const [mail, setMail] = useState('')
 
   function handleMailFormSubmit(e) {
@@ -53,7 +57,7 @@ const Subscribe = () => {
             <SubmitForm onSubmit={handleMailFormSubmit}>
               <MailInput
                 onChange={handleInputChange}
-                placeholder="Введите адрес электронной почты"
+                placeholder={isMobile ? 'Введите почту' : 'Введите адрес электронной почты'}
                 id="mail-input"
               />
               <SubmitButton variant="brand" type="submit">
@@ -66,7 +70,6 @@ const Subscribe = () => {
               src={dogImg}
               alt="Собака"
               width={592}
-              height={368}
             />
           </ImageContainer>
         </GridContainer>
@@ -88,7 +91,13 @@ const GridContainer = styled('div')`
   column-gap: 40px;
   position: relative;
   padding-top: 80px;
-  min-height: 448px;
+  padding-bottom: 80px;
+
+  ${props => props.theme.breakpoints.down('md')} {
+    grid-template-columns: 1fr;
+    padding-top: 0;
+    padding-bottom: 40px;
+  }
 `
 
 const SubscribeContent = styled('div')`
@@ -97,11 +106,23 @@ const SubscribeContent = styled('div')`
 const SocialLinks = styled('div')`
   display: flex;
   margin-top: 24px;
+
+  ${props => props.theme.breakpoints.down('md')} {
+    flex-direction: column;
+  }
 `
 
 const SocialLink = styled(StyledLink)`
   &:not(:last-child) {
     margin-right: 24px;
+  }
+
+  ${props => props.theme.breakpoints.down('md')} {
+    &:not(:last-child) {
+      margin-right: 0;
+      margin-bottom: 24px;
+    }
+    
   }
 `
 
@@ -118,6 +139,10 @@ const SocialButton = styled(Button)`
   &:hover path {
     fill: ${props => props.theme.palette.primary.main};
   }
+
+  ${props => props.theme.breakpoints.down('md')} {
+    width: 100%;
+  }
 `
 
 const SocialTitle = styled('div')`
@@ -125,9 +150,13 @@ const SocialTitle = styled('div')`
 `
 
 const MailingTitle = styled('div')`
- margin: 32px 0 12px;
+  margin: 32px 0 12px;
   font-weight: 700;
   font-size: 24px;
+
+  ${props => props.theme.breakpoints.down('md')} {
+    font-size: 24px;
+  }
 `
 
 const MailingDescription = styled(Typography)`
@@ -141,6 +170,10 @@ const MailInput = styled(Input)`
 const SubmitForm = styled('form')`
   display: flex;
   margin-top: 24px;
+
+  ${props => props.theme.breakpoints.down('md')} {
+    flex-direction: column;
+  }
 `
 
 const SubmitButton = styled(Button)`
@@ -148,6 +181,12 @@ const SubmitButton = styled(Button)`
   padding: 24px 32px;
   height: 48px;
   border-radius: 12px;
+
+  ${props => props.theme.breakpoints.down('md')} {
+    width: 100%;
+    margin-top: 16px;
+    margin-left: 0;
+  }
 `
 
 const ImageContainer = styled('div')`
@@ -156,6 +195,25 @@ const ImageContainer = styled('div')`
     right: 0;
     bottom: 0;
     z-index: 10;
+  }
+
+  ${props => props.theme.breakpoints.down('semixl')} {
+    & img {
+      width: 442px;
+      height: auto;
+      z-index: -1;
+    }
+  }
+
+  ${props => props.theme.breakpoints.down('lg')} {
+    & img {
+      width: 220px;
+      height: auto;
+    }
+  }
+
+  ${props => props.theme.breakpoints.down('extramd')} {
+    display: none;
   }
 `
 
@@ -168,7 +226,23 @@ const Circle = styled('div')`
   right: 0;
   bottom: -600px;
   border-radius: 100%;
-  z-index: -1;
+  z-index: -2;
+
+  ${props => props.theme.breakpoints.down('semixl')} {
+    width: 657px;
+    height: 657px;
+    bottom: -300px;
+  }
+
+  ${props => props.theme.breakpoints.down('lg')} {
+    width: 357px;
+    height: 357px;
+    bottom: -200px;
+  }
+
+  ${props => props.theme.breakpoints.down('extramd')} {
+    display: none;
+  }
 `
 
 export default Subscribe

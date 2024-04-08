@@ -38,6 +38,10 @@ const Faq = () => {
 
 const Section = styled('section')`
   margin-top: 160px;
+
+  ${props => props.theme.breakpoints.down('md')} {
+    margin-top: 80px;
+  }
 `
 
 const FaqContainer = styled('div')`

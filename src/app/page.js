@@ -13,7 +13,7 @@ export const metadata = {
 
 const Home = () => {
   return (
-    <main>
+    <main style={{ overflow: 'hidden' }}>
       <Banner />
       <AboutProject />
       <PhotoReports />

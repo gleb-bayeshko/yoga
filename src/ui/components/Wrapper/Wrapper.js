@@ -1,16 +1,24 @@
-import { Container } from '@mui/material'
+import { Container, styled } from '@mui/material'
 
 const Wrapper = ({ children, ...rest }) => {
   return (
-    <Container
+    <WrapperComponent
       maxWidth={false}
       disableGutters
-      sx={{ padding: '0 40px', maxWidth: '1760px' }}
       {...rest}
     >
       {children}
-    </Container>
+    </WrapperComponent>
   )
 }
+
+const WrapperComponent = styled(Container)`
+  padding: 0 50px;
+  max-width: 1780px;
+  
+  ${props => props.theme.breakpoints.down('md')} {
+    padding: 0 24px; 
+  }
+`
 
 export default Wrapper

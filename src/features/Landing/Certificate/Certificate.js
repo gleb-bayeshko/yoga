@@ -40,6 +40,10 @@ const Certificate = () => {
 
 const Section = styled('section')`
   margin-top: 160px;
+
+  ${props => props.theme.breakpoints.down('md')} {
+    margin-top: 80px;
+  }
 `
 
 const SectionGrid = styled('div')`
@@ -47,6 +51,10 @@ const SectionGrid = styled('div')`
   grid-template-columns: minmax(0, 640px) auto;
   column-gap: 80px;
   margin-top: 24px;
+
+  ${props => props.theme.breakpoints.down('md')} {
+    grid-template-columns: auto;
+  }
 `
 
 const TextContainer = styled('div')`
@@ -68,11 +76,19 @@ const ImageContainer = styled('div')`
   & img {
     border-radius: ${props => props.theme.shape.borderRadius.standard}px;
   }
+
+  ${props => props.theme.breakpoints.down('md')} {
+    margin-bottom: 32px;
+  }
 `
 
 const CertificateButton = styled(Button)`
   width: min-content;
   margin-top: 24px;
+
+  ${props => props.theme.breakpoints.down('md')} {
+    width: 100%;
+  }
 `
 
 export default Certificate

@@ -2,15 +2,17 @@
 
 import { useRef, useState } from 'react'
 import { styled } from '@mui/material'
-import { Navigation } from 'swiper/modules'
+import { FreeMode, Navigation } from 'swiper/modules'
 import { Swiper } from 'swiper/react'
 import SliderArrowLeft from '@/ui/icons/SliderArrowLeft'
+import 'swiper/css/free-mode'
 
 const Slider = ({
   slidesPerView,
   spaceBetween,
+  breakpoints,
   className,
-  children
+  children,
 }) => {
   const [reachSliderState, setReachSliderState] = useState('start')
   const swiperRef = useRef()
@@ -42,11 +44,11 @@ const Slider = ({
       <Swiper
         slidesPerView={slidesPerView}
         spaceBetween={spaceBetween}
-        pagination={{ clickable: true, }}
-        modules={[Navigation]}
+        modules={[Navigation, FreeMode]}
         onBeforeInit={handleSliderInit}
         className={className}
         onSlideChange={handleSlidesChange}
+        breakpoints={breakpoints}
       >
         {children}
       </Swiper>
