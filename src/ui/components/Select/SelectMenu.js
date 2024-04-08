@@ -46,8 +46,8 @@ const SelectMenu = ({ children, defaultValue, onChange, menuTitle, ...rest }) =>
         open={menuOpen}
         onClose={handleClose}
         anchorEl={anchorEl}
-        transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+        transformOrigin={{ horizontal: 'left', vertical: 'top' }}
+        anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
       >
         <MenuPopoverTitle variant="h5">
           {menuTitle}

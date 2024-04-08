@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Button, styled, Typography } from '@mui/material'
 import EventCard from '@/features/Landing/UpcomingEvents/EventCard/EventCard'
+import { anchors } from '@/features/Navbar/const'
 import { upcomingEvents } from '@/mock/upcomingEvents'
 import Wrapper from '@/ui/components/Wrapper/Wrapper'
 
@@ -17,7 +18,7 @@ const UpcomingEvents = () => {
   }
 
   return (
-    <Section>
+    <Section id={anchors.upcomingEvents}>
       <Wrapper>
         <Typography variant="h2">
           Ближайшие мероприятия

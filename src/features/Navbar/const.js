@@ -8,31 +8,40 @@ export const cities = [
   'Нижний Новгород',
 ]
 
+export const anchors = {
+  aboutProject: 'aboutProject',
+  photoReports: 'photoReports',
+  upcomingEvents: 'upcomingEvents',
+  certificate: 'certificate',
+  faq: 'faq',
+  subscribe: 'certificate',
+}
+
 export const links = [
   {
     id: 1,
     title: 'О нас',
-    link: '#'
+    link: `#${anchors.aboutProject}`
   },
   {
     id: 2,
     title: 'Мероприятия',
-    link: '#'
+    link: `#${anchors.upcomingEvents}`
   },
   {
     id: 3,
     title: 'Фотографии',
-    link: '#'
+    link: `#${anchors.photoReports}`
   },
   {
     id: 4,
     title: 'Сертификат',
-    link: '#'
+    link: `#${anchors.certificate}`
   },
   {
     id: 5,
     title: 'Частые вопросы',
-    link: '#'
+    link: `#${anchors.faq}`
   },
 ]
 

@@ -58,8 +58,8 @@ const Footer = () => {
           <MapContent>
             <iframe
               src="https://yandex.by/map-widget/v1/?ll=37.560322%2C55.720836&mode=whatshere&whatshere%5Bpoint%5D=37.559120%2C55.727908&whatshere%5Bzoom%5D=12&z=12"
-              width="560"
-              height="400"
+              width="760"
+              height="320"
               frameBorder="1"
               allowFullScreen="true"
               className="footer-map"

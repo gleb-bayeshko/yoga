@@ -2,6 +2,7 @@
 
 import { styled, Typography } from '@mui/material'
 import Image from 'next/image'
+import { anchors } from '@/features/Navbar/const'
 import VideoPlayer from '@/ui/components/VideoPlayer/VideoPlayer'
 import Wrapper from '@/ui/components/Wrapper/Wrapper'
 import Play from '@/ui/icons/Play'
@@ -9,7 +10,7 @@ import pawsImg from '../../../../public/aboutProject/paws.png'
 
 const AboutProject = () => {
   return (
-    <Section>
+    <Section id={anchors.aboutProject}>
       <Wrapper>
         <SectionGrid>
           <VideoPlayerContainer>

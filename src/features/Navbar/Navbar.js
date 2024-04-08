@@ -147,7 +147,7 @@ const LeftContainer = styled(Box)`
 `
 
 const Spacer = styled('div')`
- width: 100px;
+ width: 150px;
 `
 
 const SocialsContainer = styled(Box)`

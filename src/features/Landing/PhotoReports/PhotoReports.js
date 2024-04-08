@@ -2,6 +2,7 @@
 
 import { Box, styled, Typography } from '@mui/material'
 import Image from 'next/image'
+import { anchors } from '@/features/Navbar/const'
 import { photoSlider } from '@/mock/photoSlider'
 import Slider from '@/ui/components/Slider/Slider'
 import SliderSlide from '@/ui/components/Slider/SliderSlide'
@@ -10,7 +11,7 @@ import Wrapper from '@/ui/components/Wrapper/Wrapper'
 
 const PhotoReports = () => {
   return (
-    <Section>
+    <Section id={anchors.photoReports}>
       <PhotoReportsWrapper>
         <HeaderContainer display="flex" justifyContent="space-between" alignItems="center">
           <Typography variant="h2">

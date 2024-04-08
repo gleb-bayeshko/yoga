@@ -5,12 +5,13 @@ import Accordion from '@mui/material/Accordion'
 import AccordionDetails from '@mui/material/AccordionDetails'
 import AccordionSummary from '@mui/material/AccordionSummary'
 import { faqs } from '@/features/Landing/Faq/const'
+import { anchors } from '@/features/Navbar/const'
 import Wrapper from '@/ui/components/Wrapper/Wrapper'
 import ExpandArrow from '@/ui/icons/ExpandArrow'
 
 const Faq = () => {
   return (
-    <Section>
+    <Section id={anchors.faq}>
       <Wrapper>
         <Typography variant="h2">
           Частые вопросы

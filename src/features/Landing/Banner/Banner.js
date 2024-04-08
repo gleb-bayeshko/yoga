@@ -2,6 +2,7 @@
 
 import { Box, Button, styled, Typography, } from '@mui/material'
 import Image from 'next/image'
+import { anchors } from '@/features/Navbar/const'
 import { valisca } from '@/styles/fonts/fonts'
 import StyledLink from '@/ui/components/StyledLink/StyledLink'
 import Wrapper from '@/ui/components/Wrapper/Wrapper'
@@ -27,7 +28,7 @@ const Banner = () => {
             <BannerSubtitle variant="h4">
               Приходи на занятие йогой с породистыми собачками
             </BannerSubtitle>
-            <EventsLink href="#">
+            <EventsLink href={`#${anchors.upcomingEvents}`}>
               <EventsButton variant="brandWhite">
                ближайшие мероприятия
               </EventsButton>

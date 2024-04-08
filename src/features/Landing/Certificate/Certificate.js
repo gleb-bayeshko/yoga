@@ -3,11 +3,12 @@
 import { Button, styled, Typography } from '@mui/material'
 import Image from 'next/image'
 import certificateImg from '@/../public/certificate/certificate.png'
+import { anchors } from '@/features/Navbar/const'
 import Wrapper from '@/ui/components/Wrapper/Wrapper'
 
 const Certificate = () => {
   return (
-    <Section>
+    <Section id={anchors.certificate}>
       <Wrapper>
         <Typography variant="h2">
           Подарите эмоции

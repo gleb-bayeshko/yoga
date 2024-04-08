@@ -6,7 +6,7 @@ import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import Image from 'next/image'
 import dogImg from '@/../public/subscribe/dog.png'
-import { socials } from '@/features/Navbar/const'
+import { anchors, socials } from '@/features/Navbar/const'
 import Input from '@/ui/components/Input/Input'
 import StyledLink from '@/ui/components/StyledLink/StyledLink'
 import Wrapper from '@/ui/components/Wrapper/Wrapper'
@@ -29,7 +29,7 @@ const Subscribe = () => {
   }
 
   return (
-    <Section>
+    <Section id={anchors.subscribe}>
       <Wrapper>
         <GridContainer>
           <SubscribeContent>
