@@ -14,7 +14,7 @@ const PhotoReports = () => {
       <Wrapper>
         <HeaderContainer display="flex" justifyContent="space-between" alignItems="center">
           <Typography variant="h2">
-            О проекте
+            Свежие фотоотчеты
           </Typography>
           <StyledLink href="#" highlighted>
             Смотреть все фотографии
@@ -32,7 +32,7 @@ const PhotoReports = () => {
             <SliderSlide key={id}>
               <Image
                 src={url}
-                alt="Picture of the author"
+                alt="Фотоотчет"
                 width={323}
                 height={323}
                 style={{ objectFit: 'cover', objectPosition: 'center', width: '100%' }}

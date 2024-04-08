@@ -14,7 +14,7 @@ const Navbar = () => {
 
   return (
     <Wrapper>
-      <Box display="flex" justifyContent="space-between" alignItems="center">
+      <Box display="flex" justifyContent="space-between" alignItems="center" component="header">
         <Box display="flex" paddingY="20px">
           <LogoContainer href="/">
             <Logo />

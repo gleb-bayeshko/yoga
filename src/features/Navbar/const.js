@@ -40,16 +40,19 @@ export const socials = [
   {
     id: 1,
     link: '#',
-    Icon: SocialTelegram
+    Icon: SocialTelegram,
+    title: 'Мы в Телеграм'
   },
   {
     id: 2,
     link: '#',
-    Icon: SocialVk
+    Icon: SocialVk,
+    title: 'Мы в Вконтакте'
   },
   {
     id: 3,
     link: '#',
-    Icon: SocialInstagram
+    Icon: SocialInstagram,
+    title: 'Мы в Нельзяграм*'
   },
 ]

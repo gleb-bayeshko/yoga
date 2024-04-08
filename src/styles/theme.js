@@ -23,7 +23,10 @@ let theme = createTheme({
       main30: 'rgba(34, 34, 34, 0.3)',
       main3: 'rgba(34, 34, 34, 0.03)',
     },
-    danger: { main: '#fa1c1c' },
+    danger: {
+      main: '#fa1c1c',
+      mainLight: '#ff6464'
+    },
   },
   shape: {
     borderRadius: {
@@ -62,6 +65,73 @@ theme = createTheme(theme, {
     }
   },
   components: {
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          '--TextField-brandBorderColor': theme.palette.black.main30,
+          '--TextField-brandBorderHoverColor': theme.palette.primary.light,
+          '--TextField-brandBorderFocusedColor': theme.palette.primary.main,
+
+          '& .MuiOutlinedInput-root': {
+            '& .MuiOutlinedInput-notchedOutline': { border: 'none' },
+            '& .MuiInputBase-input': {
+              '& :placeholder': { color: theme.palette.black.main70 } ,
+              padding: '13px 16px',
+            },
+
+            border: `1px solid ${theme.palette.black.main30}`,
+            borderRadius: theme.shape.borderRadius.extraSmall,
+            height: '48px',
+            color: theme.palette.black.main,
+
+            '&.Mui-focused': {
+              border: `1px solid ${theme.palette.primary.main}`,
+              '& .MuiOutlinedInput-notchedOutline': { border: 'none' },
+            },
+            '&:hover:not(.Mui-focused)': { '& .MuiOutlinedInput-notchedOutline': { borderColor: '#ccc', }, },
+          },
+          '& .MuiInputLabel-outlined': {
+            color: '#2e2e2e',
+            fontWeight: 'bold',
+            '&.Mui-focused': { color: 'secondary.main', },
+          },
+        },
+      },
+    },
+    MuiAccordion: {
+      styleOverrides: {
+        root: {
+          boxShadow: 'none',
+          background: theme.palette.black.main3,
+          borderRadius: theme.shape.borderRadius.small,
+
+          '&:not(:last-child)': { marginBottom: '24px', },
+
+          '&.Mui-expanded': {
+            marginBottom: '24px',
+            marginLeft: 0,
+          },
+
+          '&:before': { display: 'none' },
+
+          '& .MuiAccordionSummary-root': {
+            minHeight: '72px',
+            padding: '0 24px',
+          },
+          '& .MuiAccordionDetails-root': {
+            padding: '0 24px 24px',
+            fontWeight: 500,
+            fontSize: '20px',
+          },
+          '& .MuiAccordionSummary-content': {
+            fontWeight: 700,
+            fontSize: '24px',
+            lineHeight: '24px',
+          },
+          '& .MuiAccordionSummary-content.Mui-expanded': { marginBottom: '16px', }
+        }
+      }
+    },
     MuiMenu: {
       styleOverrides: {
         root: {
@@ -160,6 +230,58 @@ theme = createTheme(theme, {
             '&:active': {
               color: theme.palette.primary.main,
               background: theme.palette.primary.superLight,
+            },
+          }
+        },
+        {
+          props: { variant: 'text' },
+          style: {
+            textTransform: 'none',
+            textWrap: 'nowrap',
+            background: 'transparent',
+            color: theme.palette.primary.main,
+            fontWeight: 500,
+            fontSize: '16px',
+            padding: '0',
+            width: 'min-content',
+            minWidth: 0,
+
+            '&:hover': {
+              color: theme.palette.primary.mainContrast,
+              background: 'transparent',
+            },
+
+            '&:active': {
+              color: theme.palette.primary.mainContrast,
+              background: 'transparent',
+            },
+          }
+        },
+        {
+          props: { variant: 'outlined' },
+          style: {
+            textTransform: 'none',
+            textWrap: 'nowrap',
+            background: 'transparent',
+            color: theme.palette.primary.main,
+            fontWeight: 400,
+            fontSize: '21px',
+            padding: '24px',
+            height: '73px',
+            border: `1px solid ${theme.palette.primary.main}`,
+            borderRadius: theme.shape.borderRadius.extraSmall,
+            minWidth: 0,
+
+            '&:hover': {
+              color: theme.palette.primary.mainContrast,
+              borderColor: theme.palette.primary.mainContrast,
+              background: 'transparent',
+            },
+
+            '&:active': {
+              color: theme.palette.primary.mainContrast,
+              borderColor: theme.palette.primary.mainContrast,
+              background: 'transparent',
             },
           }
         },
